@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARIF RESTAURANT | Taste That You Love</title>
+    <link rel="stylesheet" href="restuarant.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <a href="#home" class="logo">
+                ARIF<span>.</span>
+                <small>RESTAURANT</small>
+            </a>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#menu">Our Menu</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <button class="cart-button" onclick="openCart()">
+                🛒 Cart <span id="cartCount">0</span>
+            </button>
+
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <span class="tagline">WELCOME TO ARIF RESTAURANT</span>
+
+            <h1>
+                Delicious Food.<br>
+                <span>Unforgettable Taste.</span>
+            </h1>
+
+            <p>
+                Experience the perfect combination of fresh
+                ingredients, authentic flavors and delicious food.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#menu" class="primary-btn">Explore Menu →</a>
+                <a href="#about" class="secondary-btn">Discover More</a>
+            </div>
+
+            <div class="hero-info">
+                <div>
+                    <h3>100%</h3>
+                    <p>Fresh Food</p>
+                </div>
+                <div>
+                    <h3>Quality</h3>
+                    <p>Ingredients</p>
+                </div>
+                <div>
+                    <h3>Best</h3>
+                    <p>Taste</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img
+                src="https://images.unsplash.com/photo-1563379091339-03246963d51a?w=900"
+                alt="Delicious biryani">
+            <div class="floating-card">
+                <span>🔥</span>
+                <div>
+                    <strong>Fresh & Delicious</strong>
+                    <small>Made with love</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories-section">
+        <div class="section-heading">
+            <span>EXPLORE OUR FOOD</span>
+            <h2>What Would You Like <span>Today?</span></h2>
+        </div>
+
+        <div class="category-list">
+            <button class="category-btn active" onclick="filterFood('all', this)">All Food</button>
+            <button class="category-btn" onclick="filterFood('biryani', this)">🍛 Biryani</button>
+            <button class="category-btn" onclick="filterFood('pizza', this)">🍕 Pizza</button>
+            <button class="category-btn" onclick="filterFood('burger', this)">🍔 Burger</button>
+            <button class="category-btn" onclick="filterFood('starters', this)">🍗 Starters</button>
+            <button class="category-btn" onclick="filterFood('drinks', this)">🥤 Drinks</button>
+        </div>
+    </section>
+
+    <!-- Menu -->
+    <section class="menu-section" id="menu">
+        <div class="menu-heading">
+            <div>
+                <span class="orange-text">OUR SPECIAL MENU</span>
+                <h2>Popular <span>Delicious Food</span></h2>
+            </div>
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Search your favourite food..."
+                oninput="searchFood()">
+        </div>
+
+        <div class="food-grid" id="foodGrid"></div>
+        <p class="no-results" id="noResults" hidden>No food items found.</p>
+    </section>
+
+    <!-- About -->
+    <section class="about-section" id="about">
+        <div class="about-image">
+            <img
+                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900"
+                alt="Restaurant interior">
+        </div>
+
+        <div class="about-content">
+            <span class="orange-text">ABOUT OUR RESTAURANT</span>
+            <h2>Good Food Brings <span>People Together.</span></h2>
+            <p>
+                Welcome to ARIF RESTAURANT. We believe that great
+                food creates beautiful memories. Our dishes are
+                prepared with care, quality ingredients and a
+                passion for delicious flavors.
+            </p>
+            <p>
+                From mouth-watering biryani to delicious burgers,
+                we bring you a wonderful food experience.
+            </p>
+            <a href="#menu" class="primary-btn">Explore Our Food →</a>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact-section" id="contact">
+        <span class="orange-text">GET IN TOUCH</span>
+        <h2>Visit <span>ARIF RESTAURANT</span></h2>
+        <p>We are ready to serve you delicious food!</p>
+
+        <div class="contact-grid">
+            <div class="contact-card">
+                <span>📍</span>
+                <h3>Our Location</h3>
+                <p>Update your restaurant address here</p>
+            </div>
+
+            <div class="contact-card">
+                <span>📞</span>
+                <h3>Call Us</h3>
+                <p>Update your phone number here</p>
+            </div>
+
+            <div class="contact-card">
+                <span>🕒</span>
+                <h3>Opening Hours</h3>
+                <p>Update your opening hours here</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <a href="#home" class="logo">ARIF<span>.</span></a>
+        <p>Delicious Food. Unforgettable Taste.</p>
+        <p class="copyright">© 2026 ARIF RESTAURANT. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+    <aside class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>Your Cart 🛒</h2>
+            <button onclick="closeCart()" class="close-btn">×</button>
+        </div>
+
+        <div id="cartItems" class="cart-items">
+            <p class="empty-cart">Your cart is empty!</p>
+        </div>
+
+        <div class="cart-footer">
+            <div class="total-row">
+                <span>Total Amount</span>
+                <strong>₹<span id="cartTotal">0</span></strong>
+            </div>
+            <button class="checkout-btn" onclick="openCheckout()">
+                Proceed to Order →
+            </button>
+        </div>
+    </aside>
+
+    <!-- Checkout Modal -->
+    <div class="checkout-overlay" id="checkoutOverlay">
+        <div class="checkout-modal">
+            <button class="close-btn" onclick="closeCheckout()">×</button>
+
+            <h2>Complete Your Order</h2>
+            <p>Enter your details to order through WhatsApp.</p>
+
+            <form id="checkoutForm">
+                <label>Your Name</label>
+                <input type="text" id="customerName" placeholder="Enter your name" required>
+
+                <label>Phone Number</label>
+                <input type="tel" id="customerPhone" placeholder="Enter phone number"
+                    pattern="[0-9]{10}" maxlength="10" required>
+
+                <label>Delivery Address</label>
+                <textarea id="customerAddress" placeholder="Enter your full address" required></textarea>
+
+                <label>Order Type</label>
+                <select id="orderType">
+                    <option value="Home Delivery">Home Delivery</option>
+                    <option value="Takeaway">Takeaway</option>
+                </select>
+
+                <button type="submit" class="whatsapp-btn">
+                    Order on WhatsApp ↗
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="restuarant.js"></script>
+    <!-- chatbot-->
+      <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+<script type="module">
+	import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+	createChat({
+		webhookUrl: 'https://arifprojects.app.n8n.cloud/webhook/76f51e02-3683-4894-9f7a-54950a9578b5/chat'
+	});
+</script>
+</body>
+</html>
